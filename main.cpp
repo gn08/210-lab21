@@ -147,7 +147,10 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+        if (!tail) {
+            cout << "List empty";
+            return;
+        }
         while (current) {
             cout << current->data << " ";
             current = current->prev;
@@ -166,6 +169,7 @@ public:
 
 // Driver program
 int main() {
+    srand(time(0));
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
