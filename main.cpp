@@ -35,7 +35,7 @@ class Goat {
         }
 
         bool operator!=(const Goat& other) const {
-            return !(this== other);
+            return !(age == other.age && name == other.name && color == other.color);
         }
 
         bool operator==(const Goat& other) const {
@@ -120,11 +120,11 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(Goat value) {
+    void delete_node(const Goat& value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
-        while (temp && temp->data != value)
+        while (temp && !(temp->data == value))
             temp = temp->next;
 
         if (!temp) return; // Value not found
