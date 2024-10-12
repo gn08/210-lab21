@@ -23,8 +23,12 @@ class Goat {
         Goat(int a, string n, string c) : age(a), name(n), color(c) {}
 
         int get_age() const {return age;}
-        int get_name() const {return name;}
+        string get_name() const {return name;}
         string get_color() const {return color;}
+
+        void print() const {
+            cout << name << "(" << color << "," << age << ")";
+        }
 
 };
 
