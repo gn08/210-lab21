@@ -30,6 +30,13 @@ class Goat {
             cout << name << "(" << color << "," << age << ")";
         }
 
+        string Goat :: names[NUM_NAMES] = {
+            "Senior" , "Godlike" , "Old", "Old", "Mature" , "Teen", "Teen"
+        };
+
+        string Goat :: colors[NUM_COLORS] = {
+            "Yellow" , "Red", "Red", "Gold", "Mauve", "Gold" , "White"
+        };
 };
 
 class DoublyLinkedList {
