@@ -32,15 +32,14 @@ class Goat {
 
         void print() const {
             cout << name << "(" << color << "," << age << ")";
-        };
+        }
+};
+string Goat::names[NUM_NAMES] = {
+    "Senior" , "Godlike" , "Old", "Old", "Mature" , "Teen", "Teen"
+};
 
-        string Goat :: names[NUM_NAMES] = {
-            "Senior" , "Godlike" , "Old", "Old", "Mature" , "Teen", "Teen"
-        };
-
-        string Goat :: colors[NUM_COLORS] = {
-            "Yellow" , "Red", "Red", "Gold", "Mauve", "Gold" , "White"
-        };
+string Goat::colors[NUM_COLORS] = {
+    "Yellow" , "Red", "Red", "Gold", "Mauve", "Gold" , "White"
 };
 
 class DoublyLinkedList {
@@ -81,7 +80,7 @@ public:
         }
     }
 
-    void insert_after(int value, int position) {
+    void insert_after(Goat value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -112,7 +111,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void delete_node(Goat value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
