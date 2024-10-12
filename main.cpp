@@ -5,7 +5,9 @@ const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
 class Goat {
     private:
-
+        int age;
+        string name;
+        string color;
     public:
 
 };
