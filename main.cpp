@@ -20,6 +20,12 @@ class Goat {
             color = colors[rand() % NUM_COLORS]
         }
 
+        Goat(int a, string n, string c) : age(a), name(n), color(c) {}
+
+        int get_age() const {return age;}
+        int get_name() const {return name;}
+        string get_color() const {return color;}
+
 };
 
 class DoublyLinkedList {
@@ -36,7 +42,7 @@ private:
 
 public:
     // constructor
-    DoublyLinkedList() { head = nullptr; tail = nullptr; }
+    DoublyLinkedList() : head(nullptr), tail(nullptr){}
 
     void push_back(int value) {
         Node* newNode = new Node(value);
