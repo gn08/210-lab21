@@ -1,9 +1,13 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 const int NUM_NAMES = 15;
 const int NUM_COLORS = 15;
+const int MIN_AGE = 1;
+const int MAX_AGE = 20;
 
 class Goat {
     private:
@@ -42,10 +46,10 @@ class Goat {
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(Goat val, Node* p= nullptr, Node* n= nullptr): data(val), prev(p), next(n)
+        Node(Goat val, Node* p= nullptr, Node* n= nullptr): data(val), prev(p), next(n){}
     };
 
     Node* head;
@@ -55,7 +59,7 @@ public:
     // constructor
     DoublyLinkedList() : head(nullptr), tail(nullptr){}
 
-    void push_back(int value) {
+    void push_back(Goat value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
@@ -66,7 +70,7 @@ public:
         }
     }
 
-    void push_front(int value) {
+    void push_front(Goat value) {
         Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
@@ -139,20 +143,22 @@ public:
         }
         Node* current = head;
         while (current) {
-            cout << current->data << " ";
+            cout << current->data.print();
+            cout << " ";
             current = current->next;
         }
         cout << endl;
     }
 
     void print_reverse() {
-        Node* current = tail;
+       Node* current = tail;
         if (!tail) {
             cout << "List empty";
             return;
         }
         while (current) {
-            cout << current->data << " ";
+            cout << current->data.print();
+            cout << " ";
             current = current->prev;
         }
         cout << endl;
@@ -173,8 +179,10 @@ int main() {
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
-    for (int i = 0; i < size; ++i)
+    for (int i = 0; i < size; ++i){
+        Goat randomGoat;
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+    }
     cout << "List forward: ";
     list.print();
 
