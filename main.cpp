@@ -28,7 +28,7 @@ class Goat {
 
         void print() const {
             cout << name << "(" << color << "," << age << ")";
-        }
+        };
 
         string Goat :: names[NUM_NAMES] = {
             "Senior" , "Godlike" , "Old", "Old", "Mature" , "Teen", "Teen"
@@ -45,7 +45,7 @@ private:
         int data;
         Node* prev;
         Node* next;
-        Node(Goat val, Node* p= nullptr, Node* n= nullptr)
+        Node(Goat val, Node* p= nullptr, Node* n= nullptr): data(val), prev(p), next(n)
     };
 
     Node* head;
