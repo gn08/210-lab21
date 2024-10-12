@@ -15,9 +15,9 @@ class Goat {
         static string colors[num_color];
 
         Goat(){
-            age =
+            age = rand() % (MAX_AGE - MIN_AGE + 1) + MIN_AGE
             name = names[rand() % NUM_NAMES]
-            color =
+            color = colors[rand() % NUM_COLORS]
         }
 
 };
@@ -28,11 +28,7 @@ private:
         int data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
-            prev = p;
-            next = n;
-        }
+        Node(Goat val, Node* p= nullptr, Node* n= nullptr)
     };
 
     Node* head;
