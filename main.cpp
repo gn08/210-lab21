@@ -15,13 +15,13 @@ class Goat {
         string name;
         string color;
     public:
-        static string names[num_names];
-        static string colors[num_color];
+        static string names[NUM_NAMES];
+        static string colors[NUM_COLORS];
 
         Goat(){
-            age = rand() % (MAX_AGE - MIN_AGE + 1) + MIN_AGE
-            name = names[rand() % NUM_NAMES]
-            color = colors[rand() % NUM_COLORS]
+            age = rand() % (MAX_AGE - MIN_AGE + 1) + MIN_AGE;
+            name = names[rand() % NUM_NAMES];
+            color = colors[rand() % NUM_COLORS];
         }
 
         Goat(int a, string n, string c) : age(a), name(n), color(c) {}
@@ -181,7 +181,7 @@ int main() {
 
     for (int i = 0; i < size; ++i){
         Goat randomGoat;
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+        list.push_back(randomGoat);
     }
     cout << "List forward: ";
     list.print();
