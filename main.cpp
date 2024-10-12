@@ -2,6 +2,8 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int num_names = 15;
+const int num_colors = 15;
 
 class Goat {
     private:
@@ -9,6 +11,12 @@ class Goat {
         string name;
         string color;
     public:
+        static string names[num_names];
+        static string colors[num_color];
+
+        Goat(){
+
+        }
 
 };
 
