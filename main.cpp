@@ -133,8 +133,11 @@ public:
     }
 
     void print() {
+        if (!head){
+            cout << "List empty";
+            return;
+        }
         Node* current = head;
-        if (!current) return;
         while (current) {
             cout << current->data << " ";
             current = current->next;
