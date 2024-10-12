@@ -33,7 +33,16 @@ class Goat {
         void print() const {
             cout << name << "(" << color << "," << age << ")";
         }
+
+        bool operator!=(const Goat& other) const {
+            return !(this== other);
+        }
+
+        bool operator==(const Goat& other) const {
+            return (age == other.age && name == other.name && color == other.color);
+        }
 };
+
 string Goat::names[NUM_NAMES] = {
     "Senior" , "Godlike" , "Old", "Old", "Mature" , "Teen", "Teen"
 };
@@ -142,7 +151,7 @@ public:
         }
         Node* current = head;
         while (current) {
-            cout << current->data.print();
+            current->data.print();
             cout << " ";
             current = current->next;
         }
@@ -156,7 +165,7 @@ public:
             return;
         }
         while (current) {
-            cout << current->data.print();
+            current->data.print();
             cout << " ";
             current = current->prev;
         }
@@ -189,7 +198,6 @@ int main() {
     list.print_reverse();
 
     cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
     cout << "List forward: ";
     list.print();
 
