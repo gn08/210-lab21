@@ -9,6 +9,15 @@ const int NUM_COLORS = 15;
 const int MIN_AGE = 1;
 const int MAX_AGE = 20;
 
+void push_back(Goat value);
+void push_front(Goat value);
+void insert_after(Goat value, int position);
+void delete_node(const Goat& value);
+void print();
+void print_reverse();
+
+// Goat() constructor with random age, name, and color
+// return: Goat object
 class Goat {
     private:
         int age;
@@ -23,9 +32,10 @@ class Goat {
             name = names[rand() % NUM_NAMES];
             color = colors[rand() % NUM_COLORS];
         }
-
+//Goat(int a, string n, string c) Goat with specific values
+// arguments: int a, string n, string c
+//return: Goat object
         Goat(int a, string n, string c) : age(a), name(n), color(c) {}
-
         int get_age() const {return age;}
         string get_name() const {return name;}
         string get_color() const {return color;}
@@ -33,11 +43,11 @@ class Goat {
         void print() const {
             cout << name << "(" << color << "," << age << ")";
         }
-
+//checks if Goat objects are not equal
         bool operator!=(const Goat& other) const {
             return !(age == other.age && name == other.name && color == other.color);
         }
-
+//cgecks if Goat objects are equal
         bool operator==(const Goat& other) const {
             return (age == other.age && name == other.name && color == other.color);
         }
@@ -67,6 +77,9 @@ public:
     // constructor
     DoublyLinkedList() : head(nullptr), tail(nullptr){}
 
+//push_back() adds Goat to the end
+//arguments: Goat value- goat object
+//return: void
     void push_back(Goat value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
@@ -77,7 +90,9 @@ public:
             tail = newNode;
         }
     }
-
+//push_front() adds Goat to the front 
+//arguments: Goat value- goat object
+//return: void
     void push_front(Goat value) {
         Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
@@ -88,7 +103,9 @@ public:
             head = newNode;
         }
     }
-
+//insert_after() insert Goat after specific position
+//arguments: Goat value- goat object, int position- place where to add Goat
+//returns:void
     void insert_after(Goat value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
@@ -119,7 +136,9 @@ public:
             tail = newNode; // Inserting at the end
         temp->next = newNode;
     }
-
+//delete_node() delets first Goat objext from list
+// arguments: const Goat& value- Goat object
+///returns:void
     void delete_node(const Goat& value) {
         if (!head) return; // Empty list
 
@@ -143,7 +162,8 @@ public:
 
         delete temp;
     }
-
+//print() print out Goat objects in list
+//returns:void
     void print() {
         if (!head){
             cout << "List empty";
@@ -157,7 +177,8 @@ public:
         }
         cout << endl;
     }
-
+//print_reverse() print out Goat object in list backwards
+//return: void
     void print_reverse() {
        Node* current = tail;
         if (!tail) {
@@ -171,7 +192,8 @@ public:
         }
         cout << endl;
     }
-
+// ~DoublyLinkedList()destructor , deletes nodes
+//return: void
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
